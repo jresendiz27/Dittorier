@@ -13,16 +13,18 @@ Dittoier, es el nombre de la plataforma a desarrollar, el nombre, que deriva de 
 
 Considerando todas las aplicaciones de las transformadas de Fourier, así como los conocimientos adquiridos a lo largo del curso de la unidad de aprendizaje “Computación Evolutiva” se pretende lograr el objetivo.
     
-    Para esta plataforma no es necesario contar con una base de conocimientos extremadamente amplia cómo si fuese un sistema de reconocimiento de patrones o un sistema experto, sólo se necesita contar con una buena heurística para lograr generar una señal lo más parecida a la original.
+Para esta plataforma no es necesario contar con una base de conocimientos extremadamente amplia cómo si fuese un sistema de reconocimiento de patrones o un sistema experto, sólo se necesita contar con una buena heurística para lograr generar una señal lo más parecida a la original.
     
 ## Resultados y Aplicaciones:
     
-    Dentro de los resultados esperados es contar con una plataforma de escritorio o web que nos permita la interacción con el usuario, así como el muestreo de ambas señales (original y copia), además de la selección de aplicaciones y modificación de las heurísticas antes de la ejecución de copia.
+Dentro de los resultados esperados es contar con una plataforma de escritorio o web que nos permita la interacción con el usuario, así como el muestreo de ambas señales (original y copia), además de la selección de aplicaciones y modificación de las heurísticas antes de la ejecución de copia.
 
 ---
 ## Modo de trabajo
 
-Se generarán pull request par que se pueda llevar un control entre las ramas de desarrollo (**dev**) y (**master**).
+Se generarán pull request para que se pueda llevar un control entre las ramas de desarrollo (**dev**) y (**master**).
+
+Además de llevar un control de issues y features.
 
 ---
 ## Tecnologías a usar.

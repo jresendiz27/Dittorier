@@ -1,6 +1,6 @@
 # Dittorier
 Dittorier -  Imitador y manejador de señales de audio.
-
+![Dittorier](/icon/Dittorier.png)
 ## Objectivo:
 
 Por medio de una señal de audio de muestra (Formato wav o mp3) se pretende crear una señal semejante a través de un Algoritmo Evolutivo, para después procesar dicha señal copia usando operaciones de Fourier.

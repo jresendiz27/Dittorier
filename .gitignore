@@ -53,5 +53,5 @@ docs/_build/
 # PyBuilder
 target/
 #Idea stuff
-./idea
+.idea/
 *.iml

@@ -7,7 +7,7 @@ Por medio de una señal de audio de muestra (Formato wav o mp3) se pretende crea
 
 ## Descripción:
 
-Dittoier, es el nombre de la plataforma a desarrollar, el nombre, que deriva de la unión de “Ditto” (pokemon que es capaz de modificar su ADN ) y Fourier (haciendo referencia al apellido de famoso físico Joseph Fourier), tiene como principal objetivo la manipulación de señales digitales en formatos de audio como wav y mp3 a través de una copia de la información original generada a través de un algoritmo evolutivo.
+Dittoier, es el nombre de la plataforma a desarrollar, el nombre, que deriva de la unión de “Ditto” (pokemon que es capáz de modificar su ADN ) y Fourier (haciendo referencia al apellido de famoso físico Joseph Fourier), tiene como principal objetivo la manipulación de señales digitales en formatos de audio como wav y mp3 a través de una copia de la información original generada a través de un algoritmo evolutivo.
 
 ## Fuentes de Información o Trabajo:
 
@@ -25,6 +25,8 @@ Dentro de los resultados esperados es contar con una plataforma de escritorio o 
 Se generarán pull request para que se pueda llevar un control entre las ramas de desarrollo (**dev**) y (**master**).
 
 Además de llevar un control de issues y features.
+
+El trabajo será realizado por milestones, gracias a @egjimenezg por el dato!
 
 ---
 ## Tecnologías a usar.

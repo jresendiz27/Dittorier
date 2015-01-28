@@ -55,3 +55,4 @@ target/
 #Idea stuff
 .idea/
 *.iml
+config.py

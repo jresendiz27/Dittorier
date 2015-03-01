@@ -1,7 +1,11 @@
 __author__ = 'alberto'
 
+import sys
+from PyQt4 import QtCore, QtGui
 from dittorier.tools.utils import measure_time
 from dittorier.config import NUMBER_OF_GENERATIONS, CHROMOSOME_LENGTH, POPULATION_SIZE, logger, random, np
+from dittorier.gui.Dittorier import Ui_Dialog
+import DittorierResources_rc
 
 
 def single_signal_fitness():
@@ -30,5 +34,12 @@ def start_evaluation():
     logger.info("*" * 80)
 
 
-if __name__ == '__main__':
-    result = start_evaluation()
+if __name__ == "__main__":
+
+    app = QtGui.QApplication(sys.argv)
+    Dialog = QtGui.QDialog()
+    ui = Ui_Dialog()
+    ui.setupUi(Dialog)
+    Dialog.show()
+    sys.exit(app.exec_())
+    #result = start_evaluation()

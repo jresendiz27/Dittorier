@@ -2,61 +2,29 @@
 <ui version="4.0">
  <class>Dialog</class>
  <widget class="QDialog" name="Dialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>805</width>
-    <height>486</height>
+    <height>686</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Dittorier</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>461</width>
-     <height>131</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Grafica1</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>150</y>
-     <width>461</width>
-     <height>131</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Grafica2</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_3">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>290</y>
-     <width>461</width>
-     <height>131</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>FFT Gráfica</string>
-   </property>
-  </widget>
+  <property name="windowIcon">
+   <iconset resource="../../DittorierResources.qrc">
+    <normaloff>:/icon/Dittorier.png</normaloff>:/icon/Dittorier.png</iconset>
+  </property>
   <widget class="QCommandLinkButton" name="commandLinkButton">
    <property name="geometry">
     <rect>
      <x>570</x>
-     <y>20</y>
+     <y>30</y>
      <width>171</width>
      <height>41</height>
     </rect>
@@ -69,9 +37,9 @@
    <property name="geometry">
     <rect>
      <x>480</x>
-     <y>10</y>
+     <y>30</y>
      <width>20</width>
-     <height>401</height>
+     <height>601</height>
     </rect>
    </property>
    <property name="orientation">
@@ -82,7 +50,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>430</y>
+     <y>630</y>
      <width>781</width>
      <height>16</height>
     </rect>
@@ -95,7 +63,7 @@
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>180</y>
+     <y>250</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -105,7 +73,7 @@
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>160</y>
+     <y>230</y>
      <width>71</width>
      <height>17</height>
     </rect>
@@ -117,9 +85,9 @@
   <widget class="QCommandLinkButton" name="commandLinkButton_2">
    <property name="geometry">
     <rect>
-     <x>570</x>
-     <y>330</y>
-     <width>171</width>
+     <x>580</x>
+     <y>400</y>
+     <width>111</width>
      <height>41</height>
     </rect>
    </property>
@@ -131,7 +99,7 @@
    <property name="geometry">
     <rect>
      <x>710</x>
-     <y>240</y>
+     <y>310</y>
      <width>85</width>
      <height>27</height>
     </rect>
@@ -144,7 +112,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>450</y>
+     <y>650</y>
      <width>781</width>
      <height>23</height>
     </rect>
@@ -157,7 +125,7 @@
    <property name="geometry">
     <rect>
      <x>500</x>
-     <y>70</y>
+     <y>140</y>
      <width>291</width>
      <height>16</height>
     </rect>
@@ -170,7 +138,7 @@
    <property name="geometry">
     <rect>
      <x>500</x>
-     <y>270</y>
+     <y>340</y>
      <width>291</width>
      <height>16</height>
     </rect>
@@ -179,11 +147,11 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>90</y>
+     <y>160</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -232,7 +200,88 @@
     </item>
    </layout>
   </widget>
+  <widget class="QCommandLinkButton" name="commandLinkButton_3">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>90</y>
+     <width>168</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clonar Audio</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="graphicsView">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>461</width>
+     <height>131</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="graphicsView_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>170</y>
+     <width>461</width>
+     <height>131</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="Line" name="line_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>310</y>
+     <width>461</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="graphicsView_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>330</y>
+     <width>461</width>
+     <height>131</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="graphicsView_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>480</y>
+     <width>461</width>
+     <height>131</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="Line" name="line_6">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>781</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../DittorierResources.qrc"/>
+ </resources>
  <connections/>
 </ui>

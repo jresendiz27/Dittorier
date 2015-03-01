@@ -2,7 +2,7 @@ __author__ = 'alberto'
 
 import time
 from functools import wraps
-from config import logger
+from dittorier.config import logger
 
 
 def measure_time(func):

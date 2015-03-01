@@ -34,8 +34,8 @@ def generate_new_population(population, fitness, **kwargs):
 
         for son in offsprings:
             son_clone = son
-            if kwargs['mutator']:
-                whole_mutation(son_clone, kwargs['mutator'])
+            if kwargs['mutator']is not None:
+                whole_mutation(son_clone, kwargs)
             else:
                 whole_mutation(son_clone)
             new_population.append(son_clone)

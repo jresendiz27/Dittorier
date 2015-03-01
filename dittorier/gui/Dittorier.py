@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'Dittorier.ui'
 #
 # Created: Sun Mar  1 03:40:04 2015
-#      by: PyQt4 UI code generator 4.10.4
+# by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -17,20 +17,19 @@ except AttributeError:
 
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
+
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
+
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
         Dialog.setWindowModality(QtCore.Qt.WindowModal)
         Dialog.resize(805, 686)
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/Dittorier.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        Dialog.setWindowIcon(icon)
         self.commandLinkButton = QtGui.QCommandLinkButton(Dialog)
         self.commandLinkButton.setGeometry(QtCore.QRect(570, 30, 171, 41))
         self.commandLinkButton.setObjectName(_fromUtf8("commandLinkButton"))

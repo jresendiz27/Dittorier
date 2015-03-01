@@ -1,6 +1,7 @@
 __author__ = 'alberto'
 
-from dittorier.config import SAMPLE_RATE, DURATION, CHANNELS, CHUNK, OUTPUT_AUDIO_FILENAME, logger, np
+from dittorier.config import SAMPLE_RATE, DURATION, CHANNELS, CHUNK, OUTPUT_AUDIO_FILENAME, CHROMOSOME_LENGTH, logger, \
+    np, MAX_FREQUENCY, MIN_FREQUENCY
 import pyaudio
 import wave
 from scipy.io.wavfile import read
@@ -15,15 +16,18 @@ def rec_audio(time=DURATION, rate=SAMPLE_RATE, filename=OUTPUT_AUDIO_FILENAME):
                     input=True,
                     frames_per_buffer=CHUNK)
 
-    logger.debug("* recording")
+    logger.debug("recording")
 
     frames = []
 
     for i in range(0, int(rate / CHUNK * time)):
         data = stream.read(CHUNK)
+        # Cleaning data
+        data[np.abs(data) >= MAX_FREQUENCY] = MAX_FREQUENCY
+        data[np.abs(data) <= MIN_FREQUENCY] = MIN_FREQUENCY
         frames.append(data)
 
-    logger.debug("* done recording")
+    logger.debug("done recording")
 
     stream.stop_stream()
     stream.close()
@@ -36,9 +40,15 @@ def rec_audio(time=DURATION, rate=SAMPLE_RATE, filename=OUTPUT_AUDIO_FILENAME):
     wf.writeframes(b''.join(frames))
     wf.close()
 
+    return True
+
 
 def read_audio_file(name=OUTPUT_AUDIO_FILENAME):
     rate, data = read(name)
-    data[np.abs(data) >= 20000] = 20000
-    data[np.abs(data) <= 20] = 20
+    data[np.abs(data) >= MAX_FREQUENCY] = MAX_FREQUENCY
+    data[np.abs(data) <= MIN_FREQUENCY] = MIN_FREQUENCY
+    # Removing some samples to force the signal to fit into specific chunk size without resizing
+    while not len(data) % CHROMOSOME_LENGTH == 0:
+        data.pop()
+
     return data

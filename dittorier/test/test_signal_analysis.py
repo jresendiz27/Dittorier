@@ -5,7 +5,7 @@ import unittest
 from dittorier.signal.fourier import basic_operations
 
 
-class TestSelectors(unittest.TestCase):
+class TestSignal(unittest.TestCase):
     def setUp(self):
         # Test signals
         self.signal_a = [1, 2, 3, 4, 5]

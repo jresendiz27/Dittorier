@@ -12,7 +12,6 @@ def measure_time(func):
 
     @wraps(func)
     def wrapper(*args, **kwargs):
-        logger.info("Running %s", func.__name__)
         start = time.time()
         result = func(*args, **kwargs)
         end = time.time()
@@ -20,3 +19,21 @@ def measure_time(func):
         return result
 
     return wrapper
+
+
+def chunks(original_list, size):
+    """
+    Splits a list into smaller lists of size n.
+    """
+    result = []
+    for i in xrange(0, len(original_list), size):
+        result.append(original_list[i:i+size])
+
+    return result
+
+
+def chunks_with_index(original_list, size):
+    result = []
+    for i in xrange(0, len(original_list), size):
+        result.append([i] + original_list[i:i+size])
+    return result

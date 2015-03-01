@@ -1,6 +1,8 @@
 __author__ = 'alberto'
 
 from dittorier.config import POPULATION_SIZE, random
+
+
 # Returns the index of the most suitable
 def roulette_selector(fitness):
     fitness_sum = sum(fitness)
@@ -18,7 +20,8 @@ def roulette_selector(fitness):
         partial_sum = partial_sum + expected_value
         if partial_sum >= random_number:
             return index
-        index = index + 1
+        index += 1
+    return index - 1
 
 
 # Returns the index of the most suitable

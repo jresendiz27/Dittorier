@@ -15,10 +15,10 @@ def single_mutation(single, allele_index=0, modifier=None):
     return single
 
 
-def whole_mutation(single, modifier=None):
+def whole_mutation(single, kwargs=None):
     for index in range(0, len(single)):
-        if modifier:
-            single[index] = modifier(single[index])
+        if kwargs:
+            single[index] = kwargs['mutator'](single[index], kwargs)
         else:
             # Considering its a bit!
             if single[index] == 0:

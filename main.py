@@ -7,10 +7,9 @@ from dittorier.tools.utils import measure_time, chunks_with_index
 from dittorier.config import NUMBER_OF_GENERATIONS, CHROMOSOME_LENGTH, POPULATION_SIZE, TEST_SIGNAL, FITNESS_WEIGHT, \
     EPSILON, logger, random, np
 from dittorier.gui.Dittorier import Ui_Dialog
-from dittorier.genetic.components import population, mutation, crosses, selectors
+from dittorier.genetic.components import population
 from multiprocessing import cpu_count, Pool, Array as mp_Array
 from copy import copy
-import time
 
 result_array = mp_Array('i', len(TEST_SIGNAL))
 
@@ -63,33 +62,24 @@ def find_best_for(x):
     try:
         result_index = x[0]
         original_signal = x[1:]
-        logger.debug("Find best for : %s", original_signal)
         min_value, max_value, average = min(original_signal), max(original_signal), np.mean(original_signal)
-
         signal_population = population.generate_population(min_value, max_value)
         signal_fitness = signal_population_fitness(signal_population, original_signal)
-        # logger.debug("Population : %s", signal_population)
-        # logger.debug("Fitness : %s", signal_fitness)
         for generation in range(0, NUMBER_OF_GENERATIONS):
             evaluation = np.abs(FITNESS_WEIGHT * CHROMOSOME_LENGTH - EPSILON)
-            # logger.debug("Current evaluation : %s", evaluation)
             if signal_fitness[0] <= evaluation:
-                # logger.debug("Copied to result array")
                 copy_to_results_array(result_index, signal_population[0])
                 break
             new_population = population.generate_new_population(signal_population, signal_fitness,
                                                                 mutator=signal_mutation,
                                                                 min_original=min_value, max_original=max_value,
                                                                 average=average)
-            # logger.debug("New population: %s", new_population)
             signal_population = sorted(new_population,
                                        key=lambda single: single_signal_fitness(single, original_signal),
                                        reverse=False)[0:POPULATION_SIZE]
             signal_fitness = signal_population_fitness(signal_population, original_signal)
 
         copy_to_results_array(result_index, signal_population[0])
-        logger.debug("Original Signal: %s", original_signal)
-        logger.debug("No better solution found at  %s generations : %s ", NUMBER_OF_GENERATIONS, signal_population[0])
     except Exception as e:
         logger.debug(e)
     return x
@@ -119,7 +109,6 @@ def start_cloning():
     result = pool.map_async(find_best_for, split_signal, 1, result_callback)
     while True:
         if result.ready():
-            #time.sleep(60)
             pool.close()
             pool.join()
             print result
@@ -127,5 +116,4 @@ def start_cloning():
 
 
 if __name__ == "__main__":
-    start_cloning()
-    # start_gui()
+    start_gui()

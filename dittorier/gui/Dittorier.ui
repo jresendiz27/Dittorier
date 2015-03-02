@@ -20,7 +20,7 @@
    <iconset resource="../../DittorierResources.qrc">
     <normaloff>:/icon/Dittorier.png</normaloff>:/icon/Dittorier.png</iconset>
   </property>
-  <widget class="QCommandLinkButton" name="commandLinkButton">
+  <widget class="QCommandLinkButton" name="grabarAudio_CommandButton">
    <property name="geometry">
     <rect>
      <x>570</x>
@@ -59,7 +59,7 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit">
+  <widget class="QPlainTextEdit" name="miscelanea_TextEdit">
    <property name="geometry">
     <rect>
      <x>510</x>
@@ -82,7 +82,7 @@
     <string>Miscelanea</string>
    </property>
   </widget>
-  <widget class="QCommandLinkButton" name="commandLinkButton_2">
+  <widget class="QCommandLinkButton" name="comenzar_CommandButton">
    <property name="geometry">
     <rect>
      <x>580</x>
@@ -95,7 +95,7 @@
     <string>Comenzar</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="limpiar_Button">
    <property name="geometry">
     <rect>
      <x>710</x>
@@ -165,7 +165,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="accion_ComboBox">
       <item>
        <property name="text">
         <string> -- -- -- -- </string>
@@ -196,11 +196,11 @@
      </widget>
     </item>
     <item>
-     <widget class="QSpinBox" name="spinBox"/>
+     <widget class="QSpinBox" name="cantidad_SpinBox"/>
     </item>
    </layout>
   </widget>
-  <widget class="QCommandLinkButton" name="commandLinkButton_3">
+  <widget class="QCommandLinkButton" name="clonarAudio_CommandButton">
    <property name="geometry">
     <rect>
      <x>570</x>
@@ -211,26 +211,6 @@
    </property>
    <property name="text">
     <string>Clonar Audio</string>
-   </property>
-  </widget>
-  <widget class="QGraphicsView" name="graphicsView">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>30</y>
-     <width>461</width>
-     <height>131</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QGraphicsView" name="graphicsView_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>170</y>
-     <width>461</width>
-     <height>131</height>
-    </rect>
    </property>
   </widget>
   <widget class="Line" name="line_5">
@@ -246,26 +226,6 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QGraphicsView" name="graphicsView_3">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>330</y>
-     <width>461</width>
-     <height>131</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QGraphicsView" name="graphicsView_4">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>480</y>
-     <width>461</width>
-     <height>131</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="Line" name="line_6">
    <property name="geometry">
     <rect>
@@ -279,9 +239,78 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
+  <widget class="QLabel" name="label_image_1">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>461</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>image</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_image_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>180</y>
+     <width>461</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>image2</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_image_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>330</y>
+     <width>461</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>image3</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_image_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>480</y>
+     <width>461</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>image4</string>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="../../DittorierResources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>comenzar_CommandButton</sender>
+   <signal>clicked()</signal>
+   <receiver>comenzar_CommandButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>645</x>
+     <y>410</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>601</x>
+     <y>404</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

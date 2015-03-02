@@ -56,4 +56,4 @@ target/
 .idea/
 *.iml
 config.py
-dittorier/signal/*.png
+dittorier/signal/image/imagen*.png

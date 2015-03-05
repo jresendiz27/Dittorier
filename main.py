@@ -4,14 +4,16 @@ import sys
 from PyQt4 import QtCore, QtGui
 
 from dittorier.tools.utils import measure_time, chunks_with_index
-from dittorier.config import NUMBER_OF_GENERATIONS, CHROMOSOME_LENGTH, POPULATION_SIZE, TEST_SIGNAL, FITNESS_WEIGHT, \
+from dittorier.config import NUMBER_OF_GENERATIONS, TEST_SIGNAL,CHROMOSOME_LENGTH, POPULATION_SIZE, FITNESS_WEIGHT, \
     EPSILON, logger, random, np
 from dittorier.gui.Dittorier import Ui_Dialog
 from dittorier.genetic.components import population
+from dittorier.signal.audio.audio import read_audio_file, write_audio_file
 from multiprocessing import cpu_count, Pool, Array as mp_Array
 from copy import copy
 
-result_array = mp_Array('i', len(TEST_SIGNAL))
+result_array = mp_Array('i', 4000)
+AUDIO_SIGNAL = []
 
 
 def start_gui():
@@ -66,8 +68,7 @@ def find_best_for(x):
         signal_population = population.generate_population(min_value, max_value)
         signal_fitness = signal_population_fitness(signal_population, original_signal)
         for generation in range(0, NUMBER_OF_GENERATIONS):
-            evaluation = np.abs(FITNESS_WEIGHT * CHROMOSOME_LENGTH - EPSILON)
-            if signal_fitness[0] <= evaluation:
+            if signal_fitness[0] <= EPSILON:
                 copy_to_results_array(result_index, signal_population[0])
                 break
             new_population = population.generate_new_population(signal_population, signal_fitness,
@@ -87,8 +88,9 @@ def find_best_for(x):
 
 def result_callback(x):
     logger.info("Finishing all the work!")
-    logger.info("X:     \n%s ", TEST_SIGNAL)
+    logger.info("X:     \n%s ", AUDIO_SIGNAL)
     logger.info("Result:\n%s", result_array[:])
+    logger.info("Write Audio: %s ", write_audio_file('/home/alberto/Documents/PythonStuff/hola_hola_cloned.wav',result_array))
     return True
 
 
@@ -104,7 +106,11 @@ def start_cloning():
     logger.info("Number of workers: %s", cpu_count())
     logger.info("*" * 80)
     logger.info("*" * 80)
-    split_signal = chunks_with_index(TEST_SIGNAL, CHROMOSOME_LENGTH)
+    AUDIO_SIGNAL = read_audio_file('/home/alberto/Documents/PythonStuff/holahola.wav')
+    AUDIO_SIGNAL = AUDIO_SIGNAL[:len(AUDIO_SIGNAL) / 2]
+    #AUDIO_SIGNAL = TEST_SIGNAL
+    logger.info(len(AUDIO_SIGNAL))
+    split_signal = chunks_with_index(AUDIO_SIGNAL, CHROMOSOME_LENGTH)
     pool = Pool()
     result = pool.map_async(find_best_for, split_signal, 1, result_callback)
     while True:
@@ -116,4 +122,4 @@ def start_cloning():
 
 
 if __name__ == "__main__":
-    start_gui()
+    start_cloning()

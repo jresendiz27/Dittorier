@@ -4,7 +4,7 @@ from dittorier.config import SAMPLE_RATE, DURATION, CHANNELS, CHUNK, OUTPUT_AUDI
     np, MAX_FREQUENCY, MIN_FREQUENCY
 import pyaudio
 import wave
-from scipy.io.wavfile import read
+from scipy.io.wavfile import read, write
 
 
 def rec_audio(time=DURATION, rate=SAMPLE_RATE, filename=OUTPUT_AUDIO_FILENAME):
@@ -47,8 +47,15 @@ def read_audio_file(name=OUTPUT_AUDIO_FILENAME):
     rate, data = read(name)
     data[np.abs(data) >= MAX_FREQUENCY] = MAX_FREQUENCY
     data[np.abs(data) <= MIN_FREQUENCY] = MIN_FREQUENCY
+    data = data.tolist()
     # Removing some samples to force the signal to fit into specific chunk size without resizing
     while not len(data) % CHROMOSOME_LENGTH == 0:
         data.pop()
 
     return data
+
+
+def write_audio_file(name=OUTPUT_AUDIO_FILENAME, data=[]):
+    local_data = np.asarray(data,dtype='int16')
+    write(name, 2000, local_data)
+    return True
